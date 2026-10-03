@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pet Page - Buddy the Labrador</title>
+    <style>
+        /* Base Setup & Colors */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0 0 500px 0; /* Extra bottom padding to allow scrolling for the sticky effect */
+            background-color: #fffff0;
+            color: #d2691e;
+        }
+
+        header {
+            background-color: #ffa500;
+            color: white;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        /* Generic Card Styling */
+        .card {
+            border: 2px solid #ffa500;
+            background-color: white;
+            padding: 12px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+            border-radius: 2px;
+        }
+
+        /* --- 1. Static Positioning --- */
+        .position-static {
+            position: static; /* Default behavior */
+        }
+
+        /* --- 2. Relative Positioning --- */
+        .position-relative-container {
+            /* Keeps standard flow, but acts as a base if needed */
+        }
+        
+        .badge-relative {
+            position: relative;
+            left: 50px; /* Shifts the note 50px right from its normal spot */
+            background-color: #ffd700;
+            color: #333;
+            padding: 8px 15px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        /* --- 3. Absolute Positioning --- */
+        .position-absolute-container {
+            position: relative; /* CRITICAL: Acts as the anchor point for the absolute badge inside */
+            padding-right: 100px; /* Make room so text doesn't overlap the badge */
+            min-height: 25px;
+        }
+
+        .badge-absolute {
+            position: absolute;
+            top: 10px;
+            right: 10px; /* Pins the badge precisely to the top-right corner of the card */
+            background-color: #2e8b57;
+            color: white;
+            padding: 4px 8px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* --- 4. Sticky Positioning --- */
+        .sticky-header {
+            position: -webkit-sticky; /* Safari support */
+            position: sticky;
+            top: 0; /* Locks the bar at the very top of the viewport when scrolling down */
+            background-color: #ff8c00;
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+            z-index: 100; /* Keeps it on top of other scrolling content */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        My Pet Page - Buddy the Labrador
+    </header>
+
+    <div class="container">
+        <h1>Meet Buddy!</h1>
+
+        <!-- Static Section -->
+        <h2>Static</h2>
+        <div class="card position-static">Breed: Golden Retriever</div>
+        <div class="card position-static">Age: 1 year old</div>
+
+        <!-- Relative Section -->
+        <h2>Relative</h2>
+        <p>This note shifts right from its normal spot.</p>
+        <div class="position-relative-container">
+            <div class="badge-relative">Pet of the Month!</div>
+        </div>
+
+        <!-- Absolute Section -->
+        <h2>Absolute</h2>
+        <p>The badge is pinned to the corner of the card.</p>
+        <div class="card position-absolute-container">
+            Buddy - Golden Retriever, 1 year
+            <span class="badge-absolute">Adopted!</span>
+        </div>
+
+        <!-- Sticky Section -->
+        <h2>Sticky</h2>
+        <p>Scroll down - the label locks at the top!</p>
+        
+        <!-- This bar will stick to the top when you scroll down -->
+        <div class="sticky-header">
+            More Pets Available
+        </div>
+
+        <div class="card">Rex - Pitbull Terrier, 1 year</div>
+        <div class="card">Max - German Shepherd, 3 years</div>
+        <div class="card">Drex - German Shepherd, 4 years</div>
+        <div class="card">Ash - Golden Retriever, 2 years</div>
+    </div>
+
+</body>
+</html>
